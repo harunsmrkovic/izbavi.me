@@ -1,0 +1,33 @@
+
+<div class="row marketing" ng-show="loaded">
+
+  <div class="login" ng-hide="user">
+    <a ng-click="logIn('facebook')" class="btn btn-primary pull-right">Log in with facebook</a>
+    <a ng-click="logIn('twitter')" class="btn btn-primary pull-right">Log in with Twitter</a>
+  </div>
+  <div class="userinfo" ng-show="user">
+    Hello {{user.displayName}} | <a ng-click="logOut()">Log out</a>
+  </div>
+
+  <br>
+
+  <table class="table table-striped">
+    <thead>
+      <th>Notice</th>
+      <th>User</th>
+      <th>Time</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="notice in notices">
+        <td>{{notice.text}}</td>
+        <td>{{notice.user}}</td>
+        <td>{{notice.createdAt | date:'yyyy-MM-dd HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <form action="" ng-submit="submitNewMessage()">
+    <textarea class="form-control" ng-model="newMessage" id="" cols="30" rows="5"></textarea>
+    <br>
+    <button class="btn btn-primary" type="submit" ng-disabled="!user">Pošalji</button>
+  </form>
+</div>
