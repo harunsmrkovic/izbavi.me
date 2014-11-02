@@ -1,23 +1,33 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allooooo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="row marketing" ng-show="loaded">
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+  <div class="login" ng-hide="user">
+    <a ng-click="logIn('facebook')" class="btn btn-primary pull-right">Log in with facebook</a>
+    <a ng-click="logIn('twitter')" class="btn btn-primary pull-right">Log in with Twitter</a>
+  </div>
+  <div class="userinfo" ng-show="user">
+    Hello {{user.displayName}} | <a ng-click="logOut()">Log out</a>
+  </div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <br>
+
+  <table class="table table-striped">
+    <thead>
+      <th>Notice</th>
+      <th>User</th>
+      <th>Time</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="notice in notices">
+        <td>{{notice.text}}</td>
+        <td>{{notice.user}}</td>
+        <td>{{notice.createdAt | date:'yyyy-MM-dd HH:mm'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <form action="" ng-submit="submitNewMessage()">
+    <textarea class="form-control" ng-model="newMessage" id="" cols="30" rows="5"></textarea>
+    <br>
+    <button class="btn btn-primary" type="submit" ng-disabled="!user">Pošalji</button>
+  </form>
 </div>
