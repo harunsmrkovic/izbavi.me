@@ -23,14 +23,14 @@ angular.module('izbavimeApp')
             $scope.newMessage = '';
     	}
     	else {
-    		alert('You have to log in');
+    		// alert('You have to log in');
     	}
     };
 
     $scope.loaded = false;
     $scope.authClient = $firebaseSimpleLogin(ref);
     
-    $scope.authClient.$getCurrentUser().then(function(x){
+    $scope.authClient.$getCurrentUser().then(function(){
     	$scope.loaded = true;
     });
     
@@ -46,6 +46,6 @@ angular.module('izbavimeApp')
 
     $scope.logOut = function(){
     	$scope.authClient.$logout();
-    }
+    };
 
   });
