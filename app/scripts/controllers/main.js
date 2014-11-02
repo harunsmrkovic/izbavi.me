@@ -20,6 +20,7 @@ angular.module('izbavimeApp')
     $scope.submitNewMessage = function(){
     	if($scope.user){
     		$scope.notices.$add({text: $scope.newMessage, user: $scope.user.displayName, createdAt: Firebase.ServerValue.TIMESTAMP });
+            $scope.newMessage = '';
     	}
     	else {
     		alert('You have to log in');
