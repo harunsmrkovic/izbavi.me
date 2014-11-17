@@ -1,12 +1,9 @@
 'use strict';
 /*global Firebase: true */
-/**
- * @ngdoc function
- * @name izbavimeApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the izbavimeApp
- */
+
+// the code below is horrible, no one should write code like this in a controller
+// sole purpose of this code is to have fun with awesome WebSockets technology
+
 angular.module('izbavimeApp')
   .controller('MainCtrl', function ($scope, $firebase, $firebaseSimpleLogin) {
 
